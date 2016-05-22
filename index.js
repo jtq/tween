@@ -1,6 +1,6 @@
 'use strict';
 
-var walker = require("../object-walker/index");
+var walker = require("@jtq/object-walker");
 
 function stateAt(from, to, duration, progress, easingFunction, objToModify) {
 

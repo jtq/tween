@@ -1,0 +1,27 @@
+{
+  "name": "@jtq/tween",
+  "version": "1.0.0",
+  "description": "Simple object-tweening library with various (timed and interactive) tweeners defined",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jtq/tween.git"
+  },
+  "keywords": [
+    "jtq",
+    "tween",
+    "animation"
+  ],
+  "author": "James Palmer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jtq/tween/issues"
+  },
+  "homepage": "https://github.com/jtq/tween#readme",
+  "dependencies": {
+    "@jtq/object-walker": "https://github.com/jtq/object-walker.git"
+  }
+}
