@@ -6,6 +6,11 @@ function stateAt(from, to, duration, progress, easingFunction, objToModify) {
 
 	var result = objToModify ? objToModify : JSON.parse(JSON.stringify(from));	// Quick hacky object deep-clone if we aren't modifying an object in-place
 
+	easingFunction = easingFunction || function(start, end, duration, progress) {
+		var range = end - start;
+		return range*progress/duration + start;
+	};
+
 	walker.walk(from, function(val, path) {
 		var newval = easingFunction(walker.get(from, path), walker.get(to, path), duration, progress);
 		walker.set(result, path, newval);
@@ -21,10 +26,7 @@ function BaseTweener(original, target, easingFunction, stepCallback) {
 	this.current = original;
 
 	// Default easing function is a simple linear ease (hardcoded to avoid unnecessary dependency on easing-functions.js)
-	this.easingFunction = easingFunction || function(start, end, duration, progress) {
-		var range = end - start;
-		return range*progress/duration + start;
-	};
+	this.easingFunction = easingFunction;
 	this.stepCallback = stepCallback || function(){};
 }
 
